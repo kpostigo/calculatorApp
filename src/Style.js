@@ -1,6 +1,7 @@
 // Style.js
 
 import { StyleSheet } from 'react-native';
+import { blue } from 'ansi-colors';
 
 var Style = StyleSheet.create({
   root: {
@@ -28,11 +29,13 @@ var Style = StyleSheet.create({
   },
 
   numbers: {
-    flex: 3
+    flex: 3,
+    backgroundColor: '#BBDEFB'
   },
 
   functions: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#BBDEFB'
   },
 
   inputRow: {
@@ -44,12 +47,14 @@ var Style = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 5,
+    backgroundColor: '#5C6BC0',
+    borderRadius: 20,
+    borderWidth: 4,
     borderColor: '#BBDEFB'
   },
 
   inputButtonText: {
-    fontSize: 26,
+    fontSize: 32,
     fontWeight: 'bold',
     color: 'white'
   },

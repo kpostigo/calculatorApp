@@ -26,7 +26,7 @@ const numberInputs = [
 ];
 
 const functionInputs = [
-  ['del'],
+  ['DEL'],
   ['/'],    // find a better way to display 'divide' sign
   ['*'],    // same goes for * sign!
   ['-'],
@@ -175,7 +175,7 @@ export default class App extends Component {
         });
         break;
 
-      case 'del':
+      case 'DEL':
         this.setState({
           previousInputValue: 0,
           inputValue: 0,
