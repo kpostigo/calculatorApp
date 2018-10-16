@@ -27,8 +27,8 @@ const numberInputs = [
 
 const functionInputs = [
   ['DEL'],
-  ['/'],    // find a better way to display 'divide' sign
-  ['*'],    // same goes for * sign!
+  ['/'],    
+  ['*'],    
   ['-'],
   ['+']
 ];
@@ -42,6 +42,7 @@ export default class App extends Component {
       previousInputValue: 0,
       inputValue: 0,
       decimal: false,
+      equaled: false,
       selectedSymbol: null
     }
   }
@@ -134,15 +135,21 @@ export default class App extends Component {
 
   _handleNumberInput(num) {
     let inputValue = num;
-    if (this.state.decimal == false) {
+    if (this.state.equaled == true && this.state.decimal == false) {
+      inputValue = num;
+    } else if (this.state.equaled == false && this.state.decimal == false) {
       inputValue = inputValue + (this.state.inputValue * 10);
+    } else if (this.state.equaled == false && this.state.decimal == true){
+      inputValue = this.state.inputValue + (inputValue * .1);
     } else {
-      inputValue = inputValue + (this.state.inputValue * .1);
+      inputValue = num * 0.1;
     }
-    //alert(this.state.decimal);
+
+    // alert(this.state.decimal);
 
     this.setState({
-      inputValue: inputValue
+      inputValue: inputValue,
+      equaled: false
     })
   }
 
@@ -160,7 +167,8 @@ export default class App extends Component {
         this.setState({
           previousInputValue: 0,
           inputValue: eval(previousInputValue + symbol + inputValue),
-          selectedSymbol: null
+          selectedSymbol: null,
+          equaled: true
         });
         break;
 
@@ -172,6 +180,7 @@ export default class App extends Component {
           selectedSymbol: str,
           previousInputValue: this.state.inputValue,
           inputValue: 0,
+          decimal: false
         });
         break;
 
@@ -188,7 +197,7 @@ export default class App extends Component {
         this.setState({
           selectedSymbol: str,
           previousInputValue: this.state.inputValue,
-          inputValue: this.state.inputValue + str,
+          inputValue: this.state.inputValue,
           decimal: true
         });
         break;

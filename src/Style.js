@@ -5,27 +5,32 @@ import { blue } from 'ansi-colors';
 
 var Style = StyleSheet.create({
   root: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#BBDEFB'
   },
 
   display: {
-    flex: 3,
-    backgroundColor: '#BBDEFB',
-    justifyContent: 'center'
+    flex: 2,
+    backgroundColor: '#5C6BC0',
+    justifyContent: 'center',
+    opacity: 1
   },
 
   displayText: {
     color: 'white',
-    fontSize: 48,
+    fontSize: 65,
     fontWeight: 'bold',
     textAlign: 'right',
-    padding: 20
+    padding: 30,
+    marginTop: 40,
   },
 
   input: {
-    flex: 8,
+    flex: 4,
     flexDirection: 'row',
-    backgroundColor: '#5C6BC0'
+    backgroundColor: '#5C6BC0',
+    margin: 10,
+    marginTop: 15
   },
 
   numbers: {
